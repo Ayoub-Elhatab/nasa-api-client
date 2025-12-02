@@ -1,6 +1,9 @@
 package com.example.nasa.api;
 
+import com.example.nasa.dtos.neows.NeoWsDto;
 import com.example.nasa.http.HttpService;
+import com.example.nasa.utils.JsonUtils;
+
 import java.io.IOException;
 
 public class NeoWsClient {
@@ -13,8 +16,8 @@ public class NeoWsClient {
         this.service = service;
     }
 
-
-    public String getData() throws IOException, InterruptedException {
-        return service.getData(BASE_URL);
+    public NeoWsDto getData() throws IOException, InterruptedException {
+        String data = service.getData(BASE_URL);
+        return JsonUtils.toJson(data, NeoWsDto.class);
     }
 }

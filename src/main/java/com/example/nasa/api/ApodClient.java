@@ -1,6 +1,8 @@
 package com.example.nasa.api;
 
+import com.example.nasa.dtos.apod.ApodResponse;
 import com.example.nasa.http.HttpService;
+import com.example.nasa.utils.JsonUtils;
 import java.io.IOException;
 
 public class ApodClient {
@@ -13,7 +15,8 @@ public class ApodClient {
         this.service = service;
     }
 
-    public String getData() throws IOException, InterruptedException {
-        return service.getData(BASE_URL);
+    public ApodResponse getData() throws IOException, InterruptedException {
+        String data = service.getData(BASE_URL);
+        return JsonUtils.toJson(data, ApodResponse.class);
     }
 }
