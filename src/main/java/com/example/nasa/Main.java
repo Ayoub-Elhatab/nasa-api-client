@@ -5,8 +5,6 @@ import com.example.nasa.api.NeoWsClient;
 import com.example.nasa.dtos.apod.ApodResponse;
 import com.example.nasa.dtos.neows.NeoWsDto;
 import com.example.nasa.http.HttpService;
-import com.fasterxml.jackson.databind.JsonNode;
-
 import java.io.IOException;
 
 public class Main {
