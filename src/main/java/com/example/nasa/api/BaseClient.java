@@ -6,6 +6,7 @@ import com.example.nasa.exception.ApiException;
 import com.example.nasa.http.HttpService;
 import com.example.nasa.utils.JsonUtils;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.Map;
 
 public abstract class BaseClient <T>{
@@ -17,7 +18,9 @@ public abstract class BaseClient <T>{
     }
 
     protected abstract String getBaseUrl();
-    protected abstract Map<String, String> getQueryParams();
+    protected Map<String, String> getQueryParams() {
+        return Collections.emptyMap();
+    }
     protected abstract Class<T> getResponseType();
 
     public T getData() throws IOException, InterruptedException {
@@ -29,7 +32,6 @@ public abstract class BaseClient <T>{
             ApiErrorDto error = JsonUtils.toJson(response.getBody(), ApiErrorDto.class);
             throw new ApiException(response.getStatusCode(), error.getMsg());
         }
-
         return JsonUtils.toJson(response.getBody(), getResponseType());
     }
 }

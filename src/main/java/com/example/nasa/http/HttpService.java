@@ -56,7 +56,7 @@ public class HttpService {
 //                .timeout(Duration.ofSeconds(5))
 //                .build();
 //
-//        java.net.http.ApiResponse<String> response = client.send(request, java.net.http.ApiResponse.BodyHandlers.ofString());
+//        java.net.http.HttpResponse<String> response = client.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
 //
 //
 //        return response.body();
