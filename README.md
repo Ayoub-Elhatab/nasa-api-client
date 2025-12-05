@@ -6,6 +6,7 @@ A simple Java library for interacting with various NASA APIs.
 
 - **APOD** - Astronomy Picture of the Day
 - **NeoWs** - Near Earth Object Web Service
+- **EPIC** - Earth Polychromatic Imaging Camera
 - **InSight** - Mars Weather Service
 - **OSDR** - Open Science Data Repository
 - **TLE** - Two-Line Element satellite tracking data
@@ -47,6 +48,12 @@ NeoWsResponseDto neo = nasa.neo().getData(Map.of(
     "start_date", "2025-01-01",
     "end_date", "2025-01-08"
 ));
+```
+
+### Get Earth Polychromatic Imaging Camera
+
+```java
+EpicResponseDto[] epic = nasa.epic().getData(Map.of());
 ```
 
 ### Get Mars Weather Data
