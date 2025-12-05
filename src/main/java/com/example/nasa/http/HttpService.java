@@ -48,17 +48,17 @@ public class HttpService {
         return new ApiResponse(response.statusCode(), response.body());
     }
 
-//    public String getData2(String uri) throws IOException, InterruptedException {
-//        HttpRequest request = HttpRequest.newBuilder()
-//                .uri(URI.create(uri))
-//                .version(HttpClient.Version.HTTP_2)
-//                .GET()
-//                .timeout(Duration.ofSeconds(5))
-//                .build();
-//
-//        java.net.http.HttpResponse<String> response = client.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
-//
-//
-//        return response.body();
-//    }
+    public String getData2(String uri) throws IOException, InterruptedException {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(uri))
+                .version(HttpClient.Version.HTTP_2)
+                .GET()
+                .timeout(Duration.ofSeconds(5))
+                .build();
+
+        java.net.http.HttpResponse<String> response = client.send(request, java.net.http.HttpResponse.BodyHandlers.ofString());
+
+
+        return response.body();
+    }
 }
